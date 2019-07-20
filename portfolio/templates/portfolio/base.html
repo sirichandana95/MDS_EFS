@@ -70,7 +70,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'portfolio:home' %}">Home</a></li>
                 <li><a href="{% url 'portfolio:customer_list' %}">Customers</a></li>
-               <li><a href="{% url 'portfolio:customer_list' %}">Investments</a></li>
+               <li><a href="{% url 'portfolio:investment_list' %}">Investements</a></li>
                 <li><a href="{% url 'portfolio:stock_list' %}">Stocks</a></li>
 
             </ul>
@@ -81,6 +81,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'portfolio:password_change' %}"><i class="fa fa-btn fa-sign-out"></i>Change Password</a></li>
                             <li><a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>
