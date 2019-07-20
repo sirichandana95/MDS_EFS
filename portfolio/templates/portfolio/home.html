@@ -1,65 +1,128 @@
 {% extends 'portfolio/base.html' %}
 {% load staticfiles %}
 {% block content %}
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/css/modern-business.css" rel="stylesheet">
+    <link href="../../static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill"><img src="{% static "images/customer.jpg" %}" alt="customer"/></div>
+            </div>
+            <div class="item">
+                <div class="fill"><img src="{% static "images/nonstock.jpg" %}" alt="non-stock"/></div>
+            </div>
+            <div class="item">
+                <div class="fill"><img src="{% static "images/efsimg.jpeg" %}" alt="stocks"/></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+<div class="container">
             {% if user.is_authenticated %}
                 <div class="page-container">
-
                     <h2 class="top-menu">Hello {{ user.username }},</h2>
-                    <p>Please choose from below options.</p>
-
                 </div>
             {% endif %}
-            <div class="content container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="links">
-                            <!-- Example row of columns -->
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="thumbnail">
-                                        <img src="{% static "images/customer.jpg" %}" alt="customer"/>
-                                        <div class="caption">
-                                            <h2>Customer</h2>
-                                            <p>We see our success in our customers success, it gives us an immense
-                                                pleasure when our
-                                                advises
-                                                turn out to be fruitful. </p>
-                                            <p><a class="btn btn-primary" href="{% url 'portfolio:customer_list' %}"
-                                                  role="button">View
-                                                details &raquo;</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="thumbnail">
-                                        <img src="{% static "images/nonstock.jpg" %}" alt="non-stock"/>
-                                        <div class="caption">
-                                            <h2>Non-Stock Investments</h2>
-                                            <p>Our team also provides advises for Non-Stock investments.</p>
-                                            <p><a class="btn btn-primary" href="{% url 'portfolio:investment_list' %}"
-                                                  role="button">View
-                                                details &raquo;</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="thumbnail">
-                                        <img src="{% static "images/stocks.jpg" %}" alt="stocks"/>
-                                        <div class="caption">
-                                            <h2>Stocks</h2>
-                                            <p>Our Stock portfolios vary across industries.</p>
-                                            <p><a class="btn btn-primary" href="{% url 'portfolio:stock_list' %}"
-                                                  role="button">View
-                                                details &raquo;</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Welcome to Eagle Financial Services
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> Customer</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>We see our success in our customers success, it gives us an immense pleasure when our advises turn out to be fruitful.</p>
+                        <a href="{% url 'portfolio:customer_list' %}" class="btn btn-default">View details</a>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i> Non-Stock Investments</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Our team also provides advises for Non-Stock investments.</p>
+                        <a href="{% url 'portfolio:investment_list' %}" class="btn btn-default">View details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-compass"></i> Stocks</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Our Stock portfolios vary across industries.</p>
+                        <a href="{% url 'portfolio:stock_list' %}" class="btn btn-default">View details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Features Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Eagle Financial Services Features</h2>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li><strong>Customer:</strong>
+                    <ul>We see our success in our customers success, it gives us an immense pleasure when our advises turn out to be fruitful.</ul>
+                    </li>
+                    <li><strong>Non-Stock Investments:</strong>
+                    <ul>Our team also provides advises for Non-Stock investments.</ul>
+                    </li><li><strong>Stocks:</strong>
+                    <ul>Our Stock portfolios vary across industries.</ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static "images/indexlower.jpg" %}" alt="stocks" height="400" width="650"/>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Eagle Financial Services, 2019
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <script>
+    $('.carousel').carousel({
+        interval: 3000 //changes the speed
+    })
+    </script>
     </body>
     </html>
 {% endblock %}
