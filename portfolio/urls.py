@@ -1,12 +1,19 @@
 from django.conf.urls import url
 from . import views
 from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
+from django.contrib.auth.views import password_change, password_change_done
 
 app_name = 'portfolio'
 urlpatterns = [
 
     path('', views.home, name='home'),
     url(r'^home/$', views.home, name='home'),
+
+    #Change PAssword urls
+    url(r'^password-change/$', password_change, {'post_change_redirect': '/password-change/done/'},
+        name='password_change'),
+    url(r'^password-change/done/$', password_change_done, name='password_change_done'),
     path('customer_list', views.customer_list, name='customer_list'),
     path('customer/<int:pk>/edit/', views.customer_edit, name='customer_edit'),
     path('customer/<int:pk>/delete/', views.customer_delete, name='customer_delete'),
@@ -17,5 +24,8 @@ urlpatterns = [
     path('investment_list', views.investment_list, name='investment_list'),
     path('investment/create/', views.investment_new, name='investment_new'),
     path('investment/<int:pk>/edit/', views.investment_edit, name='investment_edit'),
-    path('investment/<int:pk>/delete/', views.investment_delete, name='investment_delete')
+    path('investment/<int:pk>/delete/', views.investment_delete, name='investment_delete'),
+    path('customer/<int:pk>/portfolio/', views.portfolio, name='portfolio'),
+    url(r'^customers_json/', views.CustomerList.as_view()),
 ]
+urlpatterns = format_suffix_patterns(urlpatterns)
