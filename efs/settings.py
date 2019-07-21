@@ -56,6 +56,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'efs.urls'
 
+EMAIL_HOST = 'smtp.gmail.com' # mail service smtp
+EMAIL_HOST_USER = 'mytrip.plannerapp' # email id
+EMAIL_HOST_PASSWORD = 'isqa8380t4' #password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

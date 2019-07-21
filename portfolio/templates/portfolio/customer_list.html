@@ -63,6 +63,9 @@
                         </td>
                         <td><a href="{% url 'portfolio:portfolio' pk=customer.pk %}"
                                class="btn btn-primary">Portfolio</a>
+                        <td><a href="{% url 'portfolio:admin_pdf' pk=customer.pk %}"
+                           class="btn btn-primary">Portfolio PDF</a>
+                    </td>
 
 
                     </tr>
